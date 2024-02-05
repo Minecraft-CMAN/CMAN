@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cman"
+version = "0.0.1"
+description = "The Comprehensive Minecraft Archive Network"
+authors = ["XYCode <xycode-xyc@outlook.com>"]
+license = "LGPL v2.1"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
