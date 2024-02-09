@@ -17,6 +17,7 @@ class Config(dict):
             self.file.parent.mkdir(parents=True, exist_ok=True)
 
         if not self.file.exists():
+            self.file.touch()
             self.file.write_text('{}')
 
     def __getitem__(self, key: str, default: Any) -> Any:
