@@ -17,7 +17,9 @@ class Repo(object):
         self.repo: Union[GitRepo, None] = None
 
         if not self.path.exists():
-            logger.warn(f'The repo {self.url} is not exists, downloading...')
+            logger.warning(
+                f'The repo {self.url} is not exists, downloading...')
+            self.path.mkdir(parents=True, exist_ok=True)
 
             with console.status(f'Downloading repo {self.url}...', spinner='dots8'):
                 self.repo = GitRepo.clone_from(self.url, self.path)
@@ -52,5 +54,5 @@ class Metadata(object):
             self.mods.append(mod)
 
     @staticmethod
-    def load_from_dict(data: dict) -> Repo:
+    def load_from_dict(data: dict) -> Metadata:
         return Metadata(Repo.load_from_dict(data['repo']))
