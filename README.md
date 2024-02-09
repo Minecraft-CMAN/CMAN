@@ -1,4 +1,7 @@
 # <img src="C:\Users\xycod\Pictures\cman_logo.png" alt="cman_logo" style="width:50px" />CMAN —— The Comprehensive Minecraft Archive Network
+
+[![codecov](https://codecov.io/gh/Minecraft-CMAN/CMAN/graph/badge.svg?token=DZB5S6HRAB)](https://codecov.io/gh/Minecraft-CMAN/CMAN) ![](https://img.shields.io/github/stars/Minecraft-CMAN/CMAN?style=flat) ![GitHub repo size](https://img.shields.io/github/repo-size/Minecraft-CMAN/CMAN?style=flat) ![GitHub forks](https://img.shields.io/github/forks/Minecraft-CMAN/CMAN?style=flat)
+
 <center>English  <a href="./README.zh-cn.md">简体中文</a></center>
 
 ## About this
