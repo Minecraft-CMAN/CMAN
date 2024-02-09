@@ -171,17 +171,11 @@ class Mod(object):
 
         self._project_versions: List[Version] = []
 
-    async def fetch_project_versions(self, session: aiohttp.ClientSession):
+    async def fetch_project_versions(self):
+        session = aiohttp.ClientSession(base_url='https://api.modrinth.com/')
         project_version_resp = await session.get(f'/v2/project/{self.project_id}/version')
 
-        # RateLimit Error
-        if project_version_resp.status == 429:
-            logger.warning(
-                f'Ratelimit on {self.project_id}, sleep {int(project_version_resp.headers.get("X-Ratelimit-Reset", 60)) + 1} seconds')
-
-            await asyncio.sleep(int(project_version_resp.headers.get('X-Ratelimit-Reset', 60)) + 1)
-            return await self.fetch_project_versions(session)
-        elif project_version_resp.status != 200:
+        if project_version_resp.status != 200:
             logger.error(
                 f'Failed to fetch project versions for {self.project_id}')
             return -1
